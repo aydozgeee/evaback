@@ -1,7 +1,7 @@
 const express = require('express')
-const { sequelize } = require('./models') // 'config/database' yerine 'models' dosyasını import ediyoruz
+const { sequelize } = require('./models') 
 const tradeRouter = require('./routes/trade')
-const { seedDatabase } = require('./scripts/seed') // seed fonksiyonunu import ediyoruz
+const { seedDatabase } = require('./scripts/seed')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -12,7 +12,6 @@ app.use('/api/trade', tradeRouter)
 sequelize
 	.sync()
 	.then(() => {
-		// console.log('Database & tables synced!');
 		return seedDatabase()
 	})
 	.then(() => {
