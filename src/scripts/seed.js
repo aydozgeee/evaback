@@ -3,31 +3,44 @@ const { sequelize, User, Portfolio, Share, Transaction, PortfolioShares } = requ
 
 async function seedDatabase() {
 	try {
-		// await sequelize.sync();
+		console.info('Seeding database...')
 
-		// const user1 = await User.create({ username: 'user1' });
-		// const user2 = await User.create({ username: 'user2' });
+		await sequelize.sync();
+		const shouldSeed = process.env.DB_SEED === 'true'
+		if (!shouldSeed) {
+            console.log('Skipping seed operation.');
+            return;
+        }
+		// Create Users
+		const user1 = await User.create({ username: 'user1' });
+		const user2 = await User.create({ username: 'user2' });
+		const user3 = await User.create({ username: 'user3' });
+		const user4 = await User.create({ username: 'user4' });
+		const user5 = await User.create({ username: 'user5' });
 
-		// // Create Portfolios for Users
-		// const portfolio1 = await Portfolio.create({ name: 'portfolio1', UserId: user1.id });
-		// const portfolio2 = await Portfolio.create({ name: 'portfolio2', UserId: user2.id });
+		// Create Portfolios for Users
+		const portfolio1 = await Portfolio.create({ name: 'portfolio1', UserId: user1.id });
+		const portfolio2 = await Portfolio.create({ name: 'portfolio2', UserId: user2.id });
+		const portfolio3 = await Portfolio.create({ name: 'portfolio3', UserId: user3.id });
+		const portfolio4 = await Portfolio.create({ name: 'portfolio4', UserId: user4.id });
+		const portfolio5 = await Portfolio.create({ name: 'portfolio5', UserId: user5.id });
 
-		// // Create Shares
-		// const share1 = await Share.create({ symbol: 'ABC', name: 'Company ABC', rate: 11.00 });
-		// const share2 = await Share.create({ symbol: 'XYZ', name: 'Company XYZ', rate: 15.50 });
+		// Create Shares
+		const share1 = await Share.create({ symbol: 'ABC', name: 'Company ABC', rate: 11.00 });
+		const share2 = await Share.create({ symbol: 'XYZ', name: 'Company XYZ', rate: 15.50 });
 
-		// // Add Shares to Portfolios
-		// await portfolio1.addShare(share1, { through: { quantity: 100 } });
-		// await portfolio1.addShare(share2, { through: { quantity: 50 } });
-		// await portfolio2.addShare(share1, { through: { quantity: 80 } });
+		// Add Shares to Portfolios
+		await portfolio1.addShare(share1, { through: { quantity: 100 } });
+		await portfolio1.addShare(share2, { through: { quantity: 50 } });
+		await portfolio2.addShare(share1, { through: { quantity: 80 } });
 
-		// // Create Transactions
-		// await Transaction.bulkCreate([
-		//   { type: 'BUY', quantity: 10, price: 100.00, UserId: user1.id, ShareId: share1.id },
-		//   { type: 'SELL', quantity: 5, price: 50.00, UserId: user1.id, ShareId: share2.id },
-		//   { type: 'BUY', quantity: 20, price: 220.00, UserId: user2.id, ShareId: share1.id },
-		//   { type: 'SELL', quantity: 15, price: 200.00, UserId: user2.id, ShareId: share2.id }
-		// ]);
+		// Create Transactions
+		await Transaction.bulkCreate([
+		  { type: 'BUY', quantity: 10, price: 100.00, UserId: user1.id, ShareId: share1.id },
+		  { type: 'SELL', quantity: 5, price: 50.00, UserId: user1.id, ShareId: share2.id },
+		  { type: 'BUY', quantity: 20, price: 220.00, UserId: user2.id, ShareId: share1.id },
+		  { type: 'SELL', quantity: 15, price: 200.00, UserId: user2.id, ShareId: share2.id }
+		]);
 
 		const users = await User.findAll()
 		const portfolios = await Portfolio.findAll()

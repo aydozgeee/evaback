@@ -12,7 +12,6 @@ app.use('/api/trade', tradeRouter)
 sequelize
 	.sync()
 	.then(() => {
-		// console.log('Database & tables synced!');
 		return seedDatabase()
 	})
 	.then(() => {
