@@ -1,17 +1,8 @@
 {
     "TradeService": {
-        "001": "Alerts cannot be listed",
-        "002": "Error occured while creating query level monitor",
-        "003": "Error occured while deleting query level monitor",
-        "004": "Cannot update channel configuration",
-        "005": "Cannot create channel configuration",
-        "006": "Cannot delete channel configuration",
-        "007": "Couldn't list statistics about the requested alert-node",
-        "008": "Requested monitor cannot be found",
-        "009": "Couldn't run the requested monitor without sending any message",
-        "010": "Alert Monitors cannot be listed",
-        "011": "Smtp channel not found",
-        "012": "Notification channel not found"
+        "001": "Portfolio buying can not be performed.",
+        "002": "Portfolio sale can not be realised."
+
     }
 
 }
