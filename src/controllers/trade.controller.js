@@ -1,6 +1,5 @@
 const TradeService = require('../services/tradeService')
 const serviceLogger = require('../utils/serviceLogger/logger')
-// import ErrorCauses from '../../utils/serviceLogger/ErrorCauses.json'
 
 const buyPortfolio = async function (req, res) {
 	console.log('bajajja 1')
