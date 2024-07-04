@@ -18,8 +18,15 @@ Install dependencies
 - Node.js
 - PostgreSQL
 - Docker (running PostgreSQL in a container)
+### Docker Compose Run
+- Open the terminal
+ ```bash
+      docker-compose up -d
+   ```
+
 
 ### Installation Steps
+
 
 1. Clone the repository:
    ```bash
@@ -60,5 +67,8 @@ Install dependencies
   "quantity": 5
 }
 ```
+
+
+
 
 
