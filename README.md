@@ -40,8 +40,10 @@ Install dependencies
    ```
 
 3. Set up environment variables:
-   - Use the  `.env` file.
+   - Use the  `.env` file. Also .env part is filled.
    - Initially set `DB_SEED=true` in the `.env` file to seed the database on the first run.
+   - After the initial  npm start command ,you have to disable seeding, modify `DB_SEED=false` in the `.env` file.
+
 
 4. Start the server:
    ```bash
@@ -49,7 +51,6 @@ Install dependencies
    ```
 
 5. Seed the database (optional):
-   - After the initial  npm start command ,you have to disable seeding, modify `DB_SEED=false` in the `.env` file.
 
 ### Postman Enviroments
    - Download the [postman_collection.json](./src/evabackend.postman_collection.json) file.
